@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public  int shield = 100;
 
     public int asteroidPoints = 1;
+    public int asteroidShieldDamage = 20;
 
     public  int getScore()
     {

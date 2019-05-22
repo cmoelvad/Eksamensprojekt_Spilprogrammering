@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidController : MonoBehaviour
+public class AsteroidController : MonoBehaviour, IAsteroid
 {
     public int size = 3;
 
@@ -38,9 +38,9 @@ public class AsteroidController : MonoBehaviour
         }
     }
 
-    private void Split()
+    public void Split()
     {
-        if(size > 1)
+        if (size > 1)
         {
             foreach (Rigidbody2D minorAsteroid in minorAsteroids)
             {
