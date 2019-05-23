@@ -34,8 +34,10 @@ public class SmallEnemyController : MonoBehaviour, IEnemy
     {
         Vector2 direction = bullethole.TransformDirection(Vector2.up);
         Rigidbody2D shotInstance = Instantiate(bullet, bullethole.transform.position, bullethole.transform.rotation);
-
         Vector2 force = direction * bulletSpeed;
+        print(direction);
+        print(bulletSpeed);
+        print(force);
         shotInstance.AddForce(force, ForceMode2D.Impulse);
     }
 

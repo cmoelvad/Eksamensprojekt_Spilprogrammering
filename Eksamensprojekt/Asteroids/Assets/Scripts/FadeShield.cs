@@ -29,7 +29,7 @@ public class FadeShield : MonoBehaviour
             gc.score += gc.asteroidPoints;
             asteroid.Split();
         }
-        else if(collision.gameObject.tag == "EnemyAmmo")
+        else if(collision.gameObject.tag == "EnemyAmmo" && shieldBlock == true)
         {
             updateShieldHealth(-gc.asteroidShieldDamage);
             Destroy(collision.gameObject);

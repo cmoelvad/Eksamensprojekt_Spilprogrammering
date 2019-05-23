@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed63e86359aee0741b52c5634fdc8722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowedToFire: 0
 --- !u!1 &6528474746005609051
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   health: 2
   target: {fileID: 8016808131467092056, guid: 6c8973942305db644ad944b9946b6d60, type: 3}
   bullet: {fileID: 3499851703471797508, guid: 3286cfa37770d944fb3348d8833b5bfc, type: 3}
+  bulletSpeed: 5
   bullethole: {fileID: 7061496509739312110}
   timeBetweenShots: 2
 --- !u!70 &2546473180683364730
