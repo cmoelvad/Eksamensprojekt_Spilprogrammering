@@ -5,6 +5,11 @@ using UnityEngine;
 public class BigEnemyController : MonoBehaviour, IEnemy
 {
     public int health = 4;
+    public Rigidbody2D bullet;
+    public float bulletSpeed = 5f;
+    public Transform bullethole;
+    public float timeBetweenShots = 2f;
+    private float timeSinceLastShot;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +20,11 @@ public class BigEnemyController : MonoBehaviour, IEnemy
     // Update is called once per frame
     void Update()
     {
-
+        if(Time.time - timeSinceLastShot > timeBetweenShots)
+        {
+            shoot();
+            timeSinceLastShot = Time.time;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,7 +37,14 @@ public class BigEnemyController : MonoBehaviour, IEnemy
 
     public void shoot()
     {
-        throw new System.NotImplementedException();
+        bullethole.Rotate(0, 0, Random.value * 360);
+
+        Vector2 direction = bullethole.TransformDirection(Vector2.up);
+        Rigidbody2D shotinstance = Instantiate(bullet, bullethole.transform.position, bullethole.transform.rotation);
+
+        Vector2 force = direction * bulletSpeed;
+
+        shotinstance.AddForce(force, ForceMode2D.Impulse);
     }
 
     public void takeDamage(int damage)
