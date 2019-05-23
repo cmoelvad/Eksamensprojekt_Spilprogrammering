@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour, IWhitelist
 {
     public  int score = 0;
     public  int money = 0;
     public  int health = 3;
     public  int shield = 100;
+    public int maxShield = 100;
 
     public int asteroidPoints = 1;
     public int asteroidShieldDamage = 20;

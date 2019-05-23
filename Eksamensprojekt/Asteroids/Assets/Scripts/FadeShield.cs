@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeShield : MonoBehaviour
+public class FadeShield : MonoBehaviour, IWhitelist
 {
     private int shieldHealth;
     private float alphaDecrease;
@@ -39,6 +39,10 @@ public class FadeShield : MonoBehaviour
     public void updateShieldHealth(int shieldAmount)
     {
         shieldHealth += shieldAmount;
+        if(shieldHealth> gc.maxShield)
+        {
+            shieldHealth = gc.maxShield;
+        }
         if (shieldHealth <= 0)
         {
             shieldHealth = 0;

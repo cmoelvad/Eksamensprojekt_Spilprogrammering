@@ -9,6 +9,8 @@ public class BigEnemyController : MonoBehaviour, IEnemy
     public float bulletSpeed = 5f;
     public Transform bullethole;
     public float timeBetweenShots = 2f;
+    public int moneyWorth = 5;
+
     private float timeSinceLastShot;
 
     // Start is called before the first frame update
@@ -54,5 +56,10 @@ public class BigEnemyController : MonoBehaviour, IEnemy
         {
             Destroy(gameObject);
         }
+    }
+
+    public int getMoneyWorth()
+    {
+        return moneyWorth;
     }
 }

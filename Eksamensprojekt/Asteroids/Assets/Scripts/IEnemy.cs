@@ -7,4 +7,6 @@ public interface IEnemy
     void takeDamage(int damage);
 
     void shoot();
+
+    int getMoneyWorth();
 }
