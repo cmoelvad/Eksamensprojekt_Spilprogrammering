@@ -75,6 +75,9 @@ MonoBehaviour:
   - {fileID: 4327248325570932134, guid: 62fc0d63dc048174596caf9cff34ae9d, type: 3}
   - {fileID: 2579706516741578633, guid: 3d7f699d48c9cb44eb069e259ba901bc, type: 3}
   - {fileID: 7688717883097807215, guid: 5296e2e63da3ec14ea4cc44590f65cba, type: 3}
+  ships:
+  - {fileID: 6018990466685778533, guid: f64b07ed6cd70bb45b740e44103821fb, type: 3}
+  - {fileID: 723409596764544948, guid: 82e510f6e7b2e664b96d975d3adfb6a4, type: 3}
   minimumSpawnDegree: 0
   maximumSpawnDegree: 0
   xyChange: 0

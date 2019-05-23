@@ -12,6 +12,14 @@ public class GameController : MonoBehaviour
 
     public int asteroidPoints = 1;
     public int asteroidShieldDamage = 20;
+    public int powerUpDuration = 15;
+
+    public int specialAmmo = 0;
+
+    [Range(0,100)]
+    public int powerUpSpawnChance = 5;
+
+    public GameObject[] powerUps = new GameObject[2];
 
     public  int getScore()
     {

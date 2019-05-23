@@ -8,6 +8,7 @@ public class FadeShield : MonoBehaviour
     private float alphaDecrease;
     private SpriteRenderer sprite;
     private GameController gc;
+    private bool shieldBlock = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +22,35 @@ public class FadeShield : MonoBehaviour
     {
 
         IAsteroid asteroid = collision.GetComponent<IAsteroid>();
-        if(asteroid != null)
+        if(asteroid != null && shieldBlock == true)
         {
-            Color tmpColor = sprite.color;
-            tmpColor.a -= alphaDecrease * gc.asteroidShieldDamage;
-            sprite.color = tmpColor;
-            shieldHealth -= gc.asteroidShieldDamage;
-            gc.shield = shieldHealth;
-            if(shieldHealth <= 0)
-            {
-                gameObject.SetActive(false);
-            }
-
+           
+            updateShieldHealth(-gc.asteroidShieldDamage);
+            gc.score += gc.asteroidPoints;
             asteroid.Split();
         }
+        else if(collision.gameObject.tag == "EnemyAmmo")
+        {
+            updateShieldHealth(-gc.asteroidShieldDamage);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    public void updateShieldHealth(int shieldAmount)
+    {
+        shieldHealth += shieldAmount;
+        if (shieldHealth <= 0)
+        {
+            shieldHealth = 0;
+            shieldBlock = false;
+        }
+        else
+        {
+            shieldBlock = true;
+        }
+        Color tmpColor = sprite.color;
+        tmpColor.a += alphaDecrease * shieldAmount;
+        sprite.color = tmpColor;
+        gc.shield = shieldHealth;
     }
 }

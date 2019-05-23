@@ -17,6 +17,6 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        uiText.text = "Points: " + gc.score + "   :   Shield health: " + gc.shield;
+        uiText.text = "Points: " + gc.score + "   :   Shield health: " + gc.shield + "   :   special Ammo: " + gc.specialAmmo;
     }
 }

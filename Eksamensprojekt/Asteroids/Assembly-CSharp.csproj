@@ -60,14 +60,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AllowedToFire.cs" />
     <Compile Include="Assets\Scripts\AsteroidController.cs" />
+    <Compile Include="Assets\Scripts\BigEnemyController.cs" />
     <Compile Include="Assets\Scripts\DestroyOnTimeAndHit.cs" />
+    <Compile Include="Assets\Scripts\EnemyBullet.cs" />
     <Compile Include="Assets\Scripts\FadeShield.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\IAsteroid.cs" />
+    <Compile Include="Assets\Scripts\IEnemy.cs" />
+    <Compile Include="Assets\Scripts\IPowerUp.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ShieldPowerUp.cs" />
+    <Compile Include="Assets\Scripts\SmallEnemyController.cs" />
     <Compile Include="Assets\Scripts\SpawnAsteroid.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\WeaponPowerUp.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Chrel/Documents/Git Repository/Eksamensprojekt_Spilprogrammering/Eksamensprojekt/Asteroids/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

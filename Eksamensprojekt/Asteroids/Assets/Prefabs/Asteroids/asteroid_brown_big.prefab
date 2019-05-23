@@ -94,7 +94,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -113,7 +113,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -131,8 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1875498b7c5f64348ac4d45647aac192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 2
+  size: 3
   minorAsteroids:
   - {fileID: 798948533400780254, guid: ddd338f6966238e4fa9dfb6f76be6e6b, type: 3}
   - {fileID: 7506784168889605949, guid: 91c1da2aaf89e874e9f4f275582f588d, type: 3}
-  - {fileID: 1810967953567826327, guid: eeb1f47d6ae505a4490505f6a5136e15, type: 3}

@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     [Range(1, 5f)]
     public float rotation = 3.0f;
 
-    public Rigidbody2D[] weapons = new Rigidbody2D[3];
-    public Transform bulletEntry;
+    public Rigidbody2D weapon;
+    public Transform[] bulletEntrys = new Transform[3];
     public float bulletSpeed = 20.0f;
 
     private Rigidbody2D rb;
@@ -55,39 +55,33 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Vector2 direction = bulletEntry.TransformDirection(Vector2.up);
+            Vector2 direction = bulletEntrys[0].TransformDirection(Vector2.up);
 
-            Rigidbody2D shotInstance = Instantiate(weapons[0], bulletEntry.transform.position, bulletEntry.transform.rotation);
+            Rigidbody2D shotInstance = Instantiate(weapon, bulletEntrys[0].transform.position, bulletEntrys[0].transform.rotation);
 
             Vector2 force = direction * bulletSpeed;
             shotInstance.AddForce(force, ForceMode2D.Impulse);
         }
 
-        else if (Input.GetButtonDown("Fire2"))
+        else if (Input.GetButtonDown("Fire2") && gc.specialAmmo > 0)
         {
-            Vector2 direction = bulletEntry.TransformDirection(Vector2.up);
+            foreach(Transform bulletEntry in bulletEntrys)
+            {
+                Vector2 direction = bulletEntry.TransformDirection(Vector2.up);
 
-            Rigidbody2D shotInstance = Instantiate(weapons[1], bulletEntry.transform.position, bulletEntry.transform.rotation);
+                Rigidbody2D shotInstance = Instantiate(weapon, bulletEntry.transform.position, bulletEntry.transform.rotation);
 
-            Vector2 force = direction * bulletSpeed;
-            shotInstance.AddForce(force, ForceMode2D.Impulse);
+                Vector2 force = direction * bulletSpeed;
+                shotInstance.AddForce(force, ForceMode2D.Impulse);
+            }
+            gc.specialAmmo--;
         }
-
-        else if (Input.GetButtonDown("Fire3"))
-        {
-            Vector2 direction = bulletEntry.TransformDirection(Vector2.up);
-
-            Rigidbody2D shotInstance = Instantiate(weapons[2], bulletEntry.transform.position, bulletEntry.transform.rotation);
-
-            Vector2 force = direction * bulletSpeed;
-            shotInstance.AddForce(force, ForceMode2D.Impulse);
-        }
-
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Asteroid")
+        if (collision.gameObject.tag == "EnemyAmmo")
         {
             gc.changeHealth(-1);
         }
