@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IWhitelist
 {   
     public float currentVelocity;
     [Range(1,20)]
@@ -47,7 +47,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
-
+        if (Input.GetButtonDown("Brake"))
+        {
+            rb.velocity = new Vector2(0f, 0f);
+        }
         currentVelocity = rb.velocity.magnitude;
     }
 

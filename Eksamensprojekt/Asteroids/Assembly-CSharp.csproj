@@ -70,8 +70,11 @@
     <Compile Include="Assets\Scripts\IAsteroid.cs" />
     <Compile Include="Assets\Scripts\IEnemy.cs" />
     <Compile Include="Assets\Scripts\IPowerUp.cs" />
+    <Compile Include="Assets\Scripts\IWhitelist.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Sanctuary.cs" />
     <Compile Include="Assets\Scripts\ShieldPowerUp.cs" />
+    <Compile Include="Assets\Scripts\Shop.cs" />
     <Compile Include="Assets\Scripts\SmallEnemyController.cs" />
     <Compile Include="Assets\Scripts\SpawnAsteroid.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />

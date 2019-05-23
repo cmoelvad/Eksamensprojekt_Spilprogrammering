@@ -15,13 +15,21 @@ public class DestroyOnTimeAndHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IAsteroid entity = collision.GetComponent<IAsteroid>();
-        if(entity != null)
+        IAsteroid asteroid = collision.GetComponent<IAsteroid>();
+        IEnemy enemy = collision.GetComponent<IEnemy>();
+        if(asteroid != null)
         {
-            entity.Split();
+            asteroid.Split();
             gc.score += gc.asteroidPoints;
             removeObject();
         }
+        else if(enemy != null)
+        {
+            enemy.takeDamage(1);
+            gc.money += enemy.getMoneyWorth();
+            removeObject();
+        }
+
     }
 
     private void removeObject()

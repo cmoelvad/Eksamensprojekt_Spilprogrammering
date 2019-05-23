@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AllowedToFire : MonoBehaviour
+public class AllowedToFire : MonoBehaviour, IWhitelist
 {
 
     public bool allowedToFire = false;
