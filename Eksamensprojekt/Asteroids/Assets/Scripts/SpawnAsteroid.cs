@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnAsteroid : MonoBehaviour
 {
     public Rigidbody2D[] asteroids = new Rigidbody2D[3];
+    public Rigidbody2D[] ships = new Rigidbody2D[2];
     public float minimumSpawnDegree;
     public float maximumSpawnDegree;
     [Range(0, 1)]
@@ -49,6 +50,34 @@ public class SpawnAsteroid : MonoBehaviour
                 {
                     spawnChanceInPercent += 1;
                 }
+            }
+            if((int)(Random.value * 100)< (spawnChanceInPercent / 10))
+            {
+                if (xyChange == 0)
+                {
+                    spawnpoint.position = new Vector3(spawnpoint.position.x, Random.Range(-this.transform.localScale.y / 2, this.transform.localScale.y / 2), spawnpoint.position.z);
+                }
+                else
+                {
+                    spawnpoint.position = new Vector3(Random.Range(-this.transform.localScale.y / 2, this.transform.localScale.y / 2), spawnpoint.position.y, spawnpoint.position.z);
+                }
+                spawnpoint.rotation = Quaternion.Euler(0, 0, Random.Range(minimumSpawnDegree, maximumSpawnDegree));
+
+                Vector2 direction = spawnpoint.TransformDirection(Vector2.up);
+                int shipNumber = (int)(Random.value * 2);
+                Rigidbody2D shipInstance = Instantiate(ships[shipNumber], spawnpoint.transform.position, spawnpoint.transform.rotation);
+
+                Vector2 force;
+                if(shipNumber == 0)
+                {
+                    force = direction * (asteroidSpeed * 1.5f);
+                }
+                else
+                {
+                    force = direction * asteroidSpeed;
+                }
+                shipInstance.AddForce(force, ForceMode2D.Impulse);
+                
             }
 
             lastCheck = Time.time;

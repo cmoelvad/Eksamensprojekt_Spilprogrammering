@@ -8,6 +8,9 @@ TagManager:
   - AsteroidSpawner
   - Bullet
   - Asteroid
+  - Enemy
+  - PowerUp
+  - EnemyAmmo
   layers:
   - Default
   - TransparentFX
